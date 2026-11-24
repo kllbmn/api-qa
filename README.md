@@ -37,23 +37,29 @@ Configuration: JSON
 
 3. 프로젝트 구조
 프로젝트는 설정, 테스트 데이터, 테스트 코드, 공통 유틸리티로 구성되어 있습니다.
+
 config/
 config.json: 공통 설정 관리
 environments/qa.json: QA 환경별 서버 주소 설정
+
 reports/
 search_response.html: 검색 응답 HTML 자료
 test_report.html: 테스트 실행 결과 리포트
 test.log: API 요청 및 응답 로그
+
 schemas/
 product_schema.json: 상품 데이터 구조 검증 스키마
+
 test_data/
 products.json: 정상 검색 테스트 데이터
 negative_cases.json: 예외 검색 테스트 데이터
+
 tests/
 test_connection.py: 검색 페이지 연결 테스트
 test_negative_search.py: 예외 검색 테스트
 test_product_search.py: 상품 검색 및 데이터 검증 테스트
 test_search_response.py: 검색 응답 및 상품 데이터 추출 테스트
+
 utils/
 api_client.py: HTTP 요청 및 세션 관리
 config.py: 설정 파일 로드 및 관리
@@ -62,6 +68,7 @@ html_parser.py: HTML 내부 JSON 추출
 product_parser.py: 상품 정보 추출 및 정규화
 response_validator.py: 응답 및 상품 데이터 검증
 schema_validator.py: JSON Schema 검증
+
 Root Files
 .env.example: 환경 변수 설정 예시
 .gitignore: Git 추적 제외 파일 관리
