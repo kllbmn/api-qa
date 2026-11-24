@@ -1,0 +1,22 @@
+{
+   "negative_cases": [
+       {
+           "case_name": "빈 검색어",
+           "request": {
+               "target": "all",
+               "query": "",
+               "src_area": "late"
+           },
+           "expected_product_count": 0
+       },
+       {
+           "case_name": "존재하지 않는 상품",
+           "request": {
+               "target": "all",
+               "query": "zzzzqa없는상품999",
+               "src_area": "late"
+           },
+           "expected_product_count": 0
+       }
+   ]
+}

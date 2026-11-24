@@ -1,0 +1,31 @@
+{
+   "search_cases": [
+       {
+           "case_name": "스낵면 작은컵 검색",
+           "request": {
+               "target": "all",
+               "query": "스낵면 작은컵",
+               "src_area": "late"
+           },
+           "expected_keyword": "스낵면 작은컵"
+       },
+       {
+           "case_name": "스낵면 검색",
+           "request": {
+               "target": "all",
+               "query": "스낵면",
+               "src_area": "late"
+           },
+           "expected_keyword": "스낵면"
+       },
+       {
+           "case_name": "라면 검색",
+           "request": {
+               "target": "all",
+               "query": "라면",
+               "src_area": "late"
+           },
+           "expected_keyword": "라면"
+       }
+   ]
+}

@@ -1,0 +1,49 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "title": "QA Mall Product Schema",
+   "type": "object",
+   "properties": {
+       "item_id": {
+           "type": "string",
+           "minLength": 1
+       },
+       "item_name": {
+           "type": "string",
+           "minLength": 1
+       },
+       "site_no": {
+           "type": ["string", "null"]
+       },
+       "salestr_no": {
+           "type": ["string", "null"]
+       },
+       "price": {
+           "type": ["string", "null"],
+           "pattern": "^[0-9]+$"
+       },
+       "price_text": {
+           "type": ["string", "null"]
+       },
+       "sold_out": {
+           "type": ["string", "null"],
+           "enum": ["Y", "N", null]
+       },
+       "stopped_selling": {
+           "type": ["string", "null"],
+           "enum": ["Y", "N", null]
+       },
+       "item_url": {
+           "type": ["string", "null"]
+       },
+       "image_url": {
+           "type": ["string", "null"]
+       }
+   },
+   "required": [
+       "item_id",
+       "item_name",
+       "price",
+       "sold_out"
+   ],
+   "additionalProperties": false
+}
