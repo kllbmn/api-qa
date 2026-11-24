@@ -10,6 +10,7 @@ negative_cases = loader.load_json(
    "negative_cases.json"
 )["negative_cases"]
 
+@pytest.mark.integration
 @pytest.mark.parametrize(
    "test_case",
    negative_cases,

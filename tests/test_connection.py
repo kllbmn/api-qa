@@ -1,6 +1,6 @@
-from utils.api_client import APIClient
-from utils.config import Config
+import pytest
 
+@pytest.mark.integration
 def test_search_page_connection(search_client):
    params = {
        "target": "all",
