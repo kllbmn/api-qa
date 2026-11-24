@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 *.pyc
 reports/*
-logs/*
+!reports/test_report.html
 !reports/.gitkeep
+logs/*
 !logs/.gitkeep
