@@ -117,45 +117,34 @@ Integration Test만 실행:
 전체 테스트 실행 시 Integration Test는 QA 서버에 접근할 수 있는 네트워크 환경이 필요합니다.
 7. 테스트 결과 및 로그
 테스트 실행 후 reports/ 디렉터리에서 결과를 확인할 수 있습니다.
-- test_report.html: 테스트별 성공 및 실패 결과
-- test.log: API 요청 및 응답 로그
-- search_response.html: 검색 응답 HTML 자료
-HTML 리포트를 브라우저에서 열어 테스트별 실행 결과와 실패 원인을 확인할 수 있습니다.
-8. CI 자동화
-GitHub Actions를 활용하여 코드 Push 및 Pull Request 발생 시 테스트를 자동 실행하도록 구성했습니다.
-CI 실행 흐름
-1) GitHub 저장소 코드 Checkout
-2) Python 3.12 환경 설정
-3) requirements.txt 기반 라이브러리 설치
-4) Unit Test 자동 실행
-5) HTML 테스트 리포트 Artifact 업로드
+test_report.html: 테스트 실행 결과 리포트
+test.log: API 요청 및 응답 로그
+search_response.html: 검색 응답 HTML 자료
+HTML 리포트를 브라우저에서 열어 테스트별 성공 및 실패 결과를 확인할 수 있습니다.
 
-Unit Test와 Integration Test 분리
-QA 서버가 사내 네트워크 환경에 있어 GitHub Actions에서 직접 접근할 수 없는 제약이 있습니다.
-이를 해결하기 위해 Pytest Marker를 활용하여 테스트를 분리했습니다.
-- Unit Test: 서버 접속 없이 검증 로직 및 예외 처리 확인
-- Integration Test: 실제 QA 서버와 연동하여 검색 기능 확인
-GitHub Actions에서는 다음 명령어로 Unit Test만 실행합니다.
-- pytest -m "not integration"
-테스트 완료 후 GitHub Actions의 Artifacts에서 pytest-report를 다운로드할 수 있습니다.
-9. 주요 구현 내용
-- APIClient: HTTP 요청 및 세션 관리
-- Config: 환경별 설정 관리
-- DataLoader: JSON 테스트 데이터 로드
-- HtmlParser: HTML 내부 JSON 데이터 추출
-- ProductParser: 상품 정보 추출 및 정규화
-- ResponseValidator: 응답 및 상품 데이터 검증
-- SchemaValidator: JSON Schema 검증
-- Pytest Fixtures: 테스트 환경 및 클라이언트 관리
-추가 구현 사항
-- Parametrize를 활용한 검색 조건별 반복 테스트
-- Monkeypatch를 활용한 API 예외 상황 모의 테스트
-- Pytest Marker를 활용한 Unit / Integration Test 분리
-- pytest-html을 활용한 HTML 테스트 리포트 생성
-- logging을 활용한 API 요청 및 응답 기록
-- GitHub Actions 기반 CI 자동 실행
-10. 향후 개선 방향
-- 추가 API 엔드포인트 테스트 확장
-- 사내 네트워크 기반 Integration Test CI 자동화
-- 인증 및 권한 관련 API 테스트 확장
-- 테스트 커버리지 측정 및 관리
+
+⸻
+
+
+8. 주요 구현 내용
+APIClient: HTTP 요청 및 세션 관리
+Config: 환경별 설정 관리
+DataLoader: JSON 테스트 데이터 로드
+HtmlParser: HTML 내부 JSON 데이터 추출
+ProductParser: 상품 정보 추출 및 정규화
+ResponseValidator: 응답 및 상품 데이터 검증
+SchemaValidator: JSON Schema 검증
+Pytest Fixtures: 테스트 환경 및 클라이언트 관리
+추가 구현 사항:
+Parametrize를 활용한 검색 조건별 반복 테스트
+pytest-html을 활용한 HTML 테스트 리포트 생성
+logging을 활용한 API 요청 및 응답 기록
+
+
+⸻
+
+
+9. 향후 개선 방향
+추가 API 엔드포인트 테스트 확장
+CI/CD 기반 테스트 자동 실행
+테스트 실패 시 원인 분석 및 리포트 개선
