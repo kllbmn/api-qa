@@ -129,6 +129,7 @@ CI 실행 흐름
 3) requirements.txt 기반 라이브러리 설치
 4) Unit Test 자동 실행
 5) HTML 테스트 리포트 Artifact 업로드
+
 Unit Test와 Integration Test 분리
 QA 서버가 사내 네트워크 환경에 있어 GitHub Actions에서 직접 접근할 수 없는 제약이 있습니다.
 이를 해결하기 위해 Pytest Marker를 활용하여 테스트를 분리했습니다.
